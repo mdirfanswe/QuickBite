@@ -1,0 +1,292 @@
+ /* .cart{
+  margin-top: 100px;
+}
+
+.cart-items-title{
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
+  align-items: center;
+  color: grey;
+  font-size: max(1vw,12px);
+}
+
+.cart-items-item{
+  margin: 10px;
+  color: black;
+}
+
+.cart-items-item img{
+  width: 50px;
+}
+
+.cart hr{
+  height: 1px;
+  background-color: #e2e2e2;
+  border: none;
+}
+
+.cart-items-item .cross{
+  cursor: pointer;
+}
+
+.cart-bottom{
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: max(12vw,20px);
+}
+
+.cart-total{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-total-details{
+  display: flex;
+  justify-content: space-between;
+  color: #555;
+}
+
+.cart-total hr{
+  margin: 10px 0px;
+}
+
+.cart-total button{
+  border: none;
+  color: white;
+  background-color: tomato;
+  width: max(15vw,200px);
+  padding: 12px 0px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart-promocode{
+  flex: 1;
+}
+
+.cart-promocode p{
+  color: #555;
+}
+
+.cart-promocode-input{
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eaeaea;
+  border-radius: 4px;
+}
+
+.cart-promocode-input input{
+  background: transparent;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+}
+
+.cart-promocode-input button{
+  width: max(10vw,150px);
+  padding: 12px 5px;
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+@media (max-width:700px) {
+  .cart-bottom{
+    flex-direction: column-reverse;
+  }
+  .cart-promocode{
+    justify-content: start;
+  }
+} 
+ */
+
+ /* 1. Main Container */
+.cart {
+  margin-top: 100px;
+  /* limit the width so it doesn't stretch too wide on big monitors */
+  max-width: 1200px; 
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px; /* Safety padding for mobile edges */
+}
+
+/* 2. The Table Header & Rows (Grid System) */
+.cart-items-title {
+  display: grid;
+  /* Fixed columns: Image | Title | Price | Qty | Total | Remove */
+  grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr; 
+  align-items: center;
+  color: #888; /* Softer grey */
+  font-size: 15px; /* Readable text size */
+  font-weight: 500;
+}
+
+.cart-items-item {
+  margin: 15px 0px; /* Vertical spacing between rows */
+  color: #333; /* Dark grey instead of pure black looks more premium */
+  font-weight: 500;
+}
+
+.cart-items-item img {
+  width: 60px; /* Slightly larger image */
+  border-radius: 4px; /* Soft corners on images */
+}
+
+/* 3. The Separator Lines */
+.cart hr {
+  height: 1px;
+  background-color: #eee; /* Very subtle line */
+  border: none;
+  margin: 10px 0;
+}
+
+/* 4. The Remove Button (Cross) */
+.cart-items-item .cross {
+  cursor: pointer;
+  font-weight: 700;
+  transition: color 0.3s; /* Smooth color change */
+}
+
+.cart-items-item .cross:hover {
+  color: tomato; /* Highlights red when you hover over it */
+}
+
+/* 5. Bottom Section: Totals and Promo Code */
+.cart-bottom {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+  gap: max(12vw, 20px); /* Dynamic gap */
+}
+
+/* --- Cart Totals Card --- */
+.cart-total {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-total h2 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.cart-total-details {
+  display: flex;
+  justify-content: space-between;
+  color: #555;
+  font-size: 16px;
+}
+
+.cart-total hr {
+  margin: 10px 0;
+}
+
+/* The Checkout Button */
+.cart-total button {
+  border: none;
+  color: white;
+  background-color: tomato;
+  width: max(15vw, 240px); /* Responsive width */
+  padding: 15px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+
+.cart-total button:hover {
+  background-color: #e04629; /* Darker tomato on hover */
+}
+
+/* --- Promo Code Section --- */
+.cart-promocode {
+  flex: 1;
+}
+
+.cart-promocode p {
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* The Input Group */
+.cart-promocode-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eaeaea;
+  border-radius: 4px;
+  overflow: hidden; /* Keeps the button inside the rounded corners */
+}
+
+.cart-promocode-input input {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding-left: 15px;
+  flex: 1; /* Input takes up all available space */
+  height: 50px; /* Taller input for better touch target */
+  font-size: 15px;
+}
+
+.cart-promocode-input button {
+  width: max(10vw, 150px);
+  padding: 15px 5px;
+  background-color: black;
+  color: white;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.cart-promocode-input button:hover {
+  opacity: 0.8; /* Slight fade on hover */
+}
+
+/* 6. Mobile Responsiveness */
+
+/* Tablet View: Stack the bottom section */
+@media (max-width: 750px) {
+  .cart-bottom {
+    flex-direction: column-reverse; /* Put Promo code on top, Totals on bottom? Or keep normal? Usually Totals go last. */
+    gap: 50px;
+  }
+  
+  .cart-promocode {
+    justify-content: start;
+    max-width: 400px; /* Don't let promo input get too wide on tablets */
+  }
+}
+
+/* Mobile View: Adjust the Grid */
+@media (max-width: 500px) {
+  /* Reduce grid font size */
+  .cart-items-title {
+    font-size: 12px;
+    /* Hide the Image column on small phones to save space! */
+    /* 1fr (Title) 1fr (Price) 1fr (Qty) 1fr (Total) 0.5fr (Remove) */
+    grid-template-columns: 1fr 1fr 1fr 1fr 0.5fr; 
+  }
+
+  /* This selects the IMAGE column and hides it */
+  .cart-items-title img, 
+  .cart-items-item img {
+     display: none;
+  }
+  
+  /* Make the checkout button full width on phone */
+  .cart-total button {
+    width: 100%;
+  }
+}

@@ -1,0 +1,212 @@
+/* .login-popup{
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #00000090;
+  display: grid;
+}
+
+.login-popup-container{
+  place-self: center;
+  width: max(23vw,330px);
+  color: #808080;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px 30px;
+  border-radius: 8px;
+  font-size: 14px;
+  animation: fadeIn 0.5s;
+}
+
+.login-popup-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+}
+
+.login-popup-title img{
+  width: 16px;
+  cursor: pointer;
+}
+
+.login-popup-inputs{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-popup-inputs input{
+  outline: none;
+  border: 1px solid #c9c9c9;
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.login-popup-container button{
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  color: white;
+  background-color: tomato;
+  font-size: 15px;
+  cursor: pointer;
+} 
+
+.login-popup-condition{
+  display: flex;
+  align-items: start;
+  gap: 8px;
+  margin-top: -15px;
+}
+
+.login-popup-condition input{
+  margin-top: 5px;
+}
+
+.login-popup p span{
+  color: tomato;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+
+ */
+
+ /* 1. The Background Overlay */
+.login-popup {
+  position: fixed; /* Changed from absolute to fixed so it stays centered even if page scrolls */
+  z-index: 100; /* Higher z-index ensures it sits on top of everything */
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6); /* Slightly smoother transparency */
+  display: grid; /* Used to center the popup easily */
+  animation: fadeIn 0.4s ease; /* Smooth entry animation */
+}
+
+/* 2. The Main Modal Container */
+.login-popup-container {
+  place-self: center; /* Centers item in the grid */
+  width: 100%;
+  max-width: 330px; /* Limits width on big screens */
+  min-width: 280px; /* Ensures it doesn't get too small on tiny phones */
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px 30px;
+  border-radius: 12px; /* Softer, more modern corners */
+  font-size: 14px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15); /* Adds depth/pop */
+}
+
+/* 3. Header Area */
+.login-popup-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #333; /* Dark gray is often softer than pure black */
+  font-weight: 700;
+}
+
+.login-popup-title h2 {
+  margin: 0; /* Remove default browser margins */
+}
+
+.login-popup-title img {
+  width: 16px;
+  cursor: pointer;
+  transition: transform 0.2s; /* Smooth scale effect */
+}
+
+.login-popup-title img:hover {
+  transform: scale(1.1); /* Grows slightly when hovered */
+}
+
+/* 4. Input Fields */
+.login-popup-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.login-popup-inputs input {
+  outline: none;
+  border: 1px solid #c9c9c9;
+  padding: 12px; /* A bit more padding for comfort */
+  border-radius: 6px;
+  font-size: 15px;
+  transition: border-color 0.3s; /* Smooth color change */
+}
+
+/* Important: Visual feedback when user clicks an input */
+.login-popup-inputs input:focus {
+  border-color: tomato;
+}
+
+/* 5. The Main Action Button */
+.login-popup-container button {
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  color: white;
+  background-color: tomato;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.login-popup-container button:hover {
+  background-color: #e04629; /* Slightly darker tomato on hover */
+}
+
+.login-popup-container button:active {
+  transform: scale(0.98); /* Click effect */
+}
+
+/* 6. Terms and Conditions */
+.login-popup-condition {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  margin-top: -10px;
+  font-size: 13px; /* Slightly smaller text for legal stuff */
+}
+
+.login-popup-condition input {
+  margin-top: 4px;
+  accent-color: tomato; /* Makes the checkbox tomato colored! */
+  cursor: pointer;
+}
+
+/* 7. Toggle Link (Login vs Sign up) */
+.login-popup p {
+  color: #676767;
+  font-size: 14px;
+}
+
+.login-popup p span {
+  color: tomato;
+  font-weight: 600;
+  cursor: pointer;
+  margin-left: 4px;
+  text-decoration: none;
+}
+
+.login-popup p span:hover {
+  text-decoration: underline; /* Standard web behavior for links */
+}
+
+/* 8. The Animation Definition */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

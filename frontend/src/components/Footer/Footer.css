@@ -1,0 +1,123 @@
+/* 1. Main Container */
+.footer {
+  color: #d9d9d9;
+  background-color: #323232; /* Dark charcoal background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 8vw; /* Responsive horizontal padding */
+  padding-top: 80px;
+  margin-top: 100px; /* Space from the content above */
+}
+
+/* 2. Content Grid Layout */
+.footer-content {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; /* 2 parts left, 1 part center, 1 part right */
+  gap: 80px;
+}
+
+/* --- Left Section (Logo & Socials) --- */
+.footer-content-left {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+/* Logo styling - Ensures it doesn't get too big */
+.footer-content-left > img {
+    /* Adjust width based on your actual logo size */
+    max-width: 150px; 
+    height: auto;
+}
+
+.footer-content-left p {
+    font-size: 15px;
+    line-height: 1.5; /* Improves readability of the paragraph */
+}
+
+.footer-social-icons {
+  display: flex;
+}
+
+.footer-social-icons img {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover effect for icons: Slight zoom */
+.footer-social-icons img:hover {
+    transform: scale(1.1);
+}
+
+/* --- Center & Right Sections (Links) --- */
+.footer-content-center, 
+.footer-content-right {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 20px;
+}
+
+.footer-content-center h2, 
+.footer-content-right h2 {
+  color: #fff; /* Bright white for headings */
+  font-size: 18px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.footer-content-center ul, 
+.footer-content-right ul {
+  list-style: none; /* Removes bullet points */
+  padding: 0;
+  margin: 0;
+}
+
+.footer-content-center li, 
+.footer-content-right li {
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* Hover effect for links: Shift right and change color */
+.footer-content-center li:hover,
+.footer-content-right li:hover {
+    color: tomato; /* Matches your brand name */
+    transform: translateX(5px);
+}
+
+/* --- Bottom Section (Copyright) --- */
+.footer hr {
+  width: 100%;
+  height: 2px;
+  margin: 20px 0;
+  background-color: grey;
+  border: none;
+  opacity: 0.5;
+}
+
+.footer-copyright {
+  text-align: center;
+  font-size: 14px;
+}
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 750px) {
+  .footer-content {
+    display: flex;
+    flex-direction: column; /* Stacks columns vertically */
+    gap: 35px;
+  }
+  
+  .footer-content-left p {
+      max-width: 100%;
+  }
+}

@@ -1,56 +1,98 @@
-.explore-menu{
+.explore-menu {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-bottom: 20px;
 }
 
-.explore-menu h1{
+.explore-menu h1 {
   color: #262626;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: clamp(24px, 4vw, 32px); /* Scales smoothly */
 }
 
-.explore-menu-text{
+.explore-menu-text {
   max-width: 60%;
-  columns: #808080;
+  color: #808080; /* Fixed typo from 'columns' to 'color' */
+  font-size: 16px;
+  line-height: 1.6; /* Adds professional spacing between lines */
 }
 
-.explore-menu-list{
+.explore-menu-list {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start; /* Aligns items to the left */
   align-items: center;
   gap: 30px;
   text-align: center;
   margin: 20px 0px;
-  overflow: scroll;
+  
+  /* Horizontal Scrolling Logic */
+  overflow-x: auto; /* Allows side-scrolling */
+  scroll-behavior: smooth;
+  padding: 10px 0; /* Prevents shadows from getting cut off */
 }
 
-.explore-menu-list::-webkit-scrollbar{
+/* Hide the scrollbar but keep functionality */
+.explore-menu-list::-webkit-scrollbar {
   display: none;
 }
-
-.explore-menu-list-item img{
-  width: 7.5vw;
-  min-width: 80px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: 0.2s;
+.explore-menu-list {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.explore-menu-list-item p{
+.explore-menu-list-item {
+  /* Crucial: Prevents items from getting squashed */
+  flex-shrink: 0; 
+  cursor: pointer;
+}
+
+.explore-menu-list-item img {
+  width: 7.5vw;
+  min-width: 80px; /* Ensures image never gets too small on mobile */
+  height: auto; /* Maintains aspect ratio */
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+/* Hover effect only for non-touch screens */
+@media (hover: hover) {
+  .explore-menu-list-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+  }
+}
+
+.explore-menu-list-item p {
   margin-top: 10px;
   color: #747474;
-  font-size: max(1.4vw,16px);
+  font-size: max(1.4vw, 16px);
   cursor: pointer;
+  font-weight: 500;
 }
 
-.explore-menu hr{
+.explore-menu-list-item .active {
+  border: 4px solid tomato;
+  padding: 2px;
+  transform: scale(1.05); /* Slight pop for selected item */
+}
+
+.explore-menu hr {
   margin: 10px 0px;
   height: 2px;
   background-color: #e2e2e2;
   border: none;
+  border-radius: 5px;
 }
 
-.explore-menu-list-item .active{
-  border: 4px solid tomato;
-  padding: 2px;
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 1050px) {
+  .explore-menu-text {
+    max-width: 100%; /* Text takes full width on tablets/mobile */
+    font-size: 14px;
+  }
+  
+  .explore-menu-list {
+    gap: 20px; /* Tighter spacing on mobile */
+  }
 }

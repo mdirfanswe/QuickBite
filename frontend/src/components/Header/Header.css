@@ -1,12 +1,19 @@
-.header{
+.header {
+  /* Use a minimum height so it doesn't shrink too much on mobile */
   height: 34vw;
+  min-height: 450px; 
   margin: 30px auto;
-  background: url('/header_img.png') no-repeat;
-  background-size: contain;
+  
+  /* 'cover' ensures the image fills the box without whitespace */
+  background: url('/header_img.png') no-repeat center center;
+  background-size: cover; 
+  
   position: relative;
+  border-radius: 20px; /* Adds a modern rounded corner */
+  overflow: hidden; /* Ensures content doesn't spill out of rounded corners */
 }
 
-.header-contents{
+.header-contents {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -15,26 +22,76 @@
   max-width: 50%;
   bottom: 10%;
   left: 6vw;
+  
+  /* Animation */
   animation: fadeIn 3s;
 }
 
-.header-contents h2{
-  font-weight: 500;
+.header-contents h2 {
+  font-weight: 600;
   color: white;
-  font-size: max(4.5vw,22px);
+  /* clamp sets a minimum (22px), preferred (4.5vw), and maximum size */
+  font-size: clamp(22px, 4.5vw, 60px); 
+  line-height: 1.2;
 }
 
-.header-contents{
+.header-contents p {
   color: white;
-  font-size: 1vw;
+  font-size: 1.1vw;
+  line-height: 1.5;
+  margin-bottom: 10px;
 }
 
-.header-contents button{
+.header-contents button {
   border: none;
-  color: #747474;
+  color: #4a4a4a;
+  background-color: white;
   font-weight: 500;
   padding: 1vw 2.3vw;
-  background-color: white;
-  font-size: max(1vw,13px);
+  font-size: max(1vw, 13px);
   border-radius: 50px;
+  cursor: pointer;
+  transition: 0.3s; /* Smooth effect on hover */
+}
+
+.header-contents button:hover {
+  transform: scale(1.05); /* Slightly grows when you hover */
+  background-color: #f8f8f8;
+}
+
+/* --- Responsive Design for Mobile/Tablets --- */
+@media (max-width: 768px) {
+  .header {
+    min-height: 50vh; /* Taller on mobile to fit content */
+    background-position: right center; /* Focus on the right side of image */
+  }
+
+  .header-contents {
+    max-width: 85%; /* Allow text to take more width on small screens */
+    left: 5%;
+    bottom: 5%;
+  }
+
+  .header-contents h2 {
+    font-size: 32px; /* Readable fixed size for mobile */
+  }
+
+  .header-contents p {
+    font-size: 14px; /* Fix the tiny text issue */
+    display: none; /* Optional: Hide paragraph on very small screens to save space */
+  }
+  
+  /* If you want to keep the paragraph, remove 'display: none' above 
+     and keep font-size: 14px */
+
+  .header-contents button {
+    padding: 12px 25px;
+    font-size: 14px;
+  }
+}
+
+/* Keyframes for animation */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }

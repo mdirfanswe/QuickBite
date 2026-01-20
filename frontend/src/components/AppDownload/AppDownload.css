@@ -1,0 +1,47 @@
+/* 1. Main Container */
+.app-download {
+  margin: 100px auto; /* Top/Bottom space: 100px, Left/Right: Auto (Centers it) */
+  font-size: max(3vw, 20px); /* Responsive font: scales with screen, but never smaller than 20px */
+  text-align: center;
+  font-weight: 500;
+  color: #2d2d2d; /* Dark charcoal (softer than pure black) */
+}
+
+/* 2. Platform Icons Container */
+.app-download-platforms {
+  display: flex;
+  justify-content: center; /* Centers the images horizontally */
+  gap: 20px; /* Adds space between the Play Store and App Store */
+  margin-top: 40px; /* Space between text and images */
+}
+
+/* 3. Image Styling (The Buttons) */
+.app-download-platforms img {
+  width: 140px; /* Standard size for app store badges */
+  height: auto; /* Maintains aspect ratio */
+  cursor: pointer; /* Changes mouse to pointer to show clickability */
+  transition: 0.5s; /* Smooth animation duration */
+  border-radius: 8px; /* Slight curve to corners creates a modern feel */
+}
+
+/* 4. Hover Effect - The "Premium" Interaction */
+.app-download-platforms img:hover {
+  /* Scales up by 5% and lifts up slightly */
+  transform: scale(1.05) translateY(-5px); 
+  /* Adds a soft shadow underneath for depth */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Responsive Tweaks --- */
+@media (max-width: 750px) {
+  /* On mobile, we increase margin slightly to separate from footer */
+  .app-download {
+    margin: 60px auto;
+    font-size: 20px; /* Fixed readable size for mobile */
+    padding: 0 20px; /* Adds side padding so text doesn't touch edges */
+  }
+
+  .app-download-platforms img {
+    width: 120px; /* Slightly smaller buttons on mobile */
+  }
+}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./LoginPopup.css";
 import { assets } from "../../assets/assets";
 import { useContext } from "react";
-import { StoreContext } from "../../context/StoreContex";
+import { StoreContext } from "../../context/StoreContext";
 import axios from "axios";
 
 const LoginPopup = ({ setShowLogin }) => {
